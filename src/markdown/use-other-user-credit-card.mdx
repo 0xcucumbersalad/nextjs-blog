@@ -1,0 +1,90 @@
+export const metadata = {
+  title: "Understanding Payment Workflow Vulnerabilities: A Case of Improper Authorization",
+  date: "2025-01-25",
+  summary: "An exploration of how weak authorization in payment processing APIs can lead to misuse and fraud, and how to address such vulnerabilities.",
+};
+
+## Introduction
+
+Modern web applications often rely on seamless payment workflows to ensure a smooth user experience. However, the complexity of these systems sometimes leads to unintended flaws that malicious actors can exploit. One such vulnerability arises from improper authorization mechanisms in payment processing APIs. In this post, we’ll delve into the potential risks and how they might be exploited, as well as propose measures to secure these systems.
+
+---
+
+## The Issue: Authorization Bug in Payment Workflows
+
+Imagine a platform that allows users to manage their accounts and payment details easily. To upgrade their subscription, users simply select a plan and provide billing details. Behind the scenes, the platform uses APIs to validate payment methods and link transactions to a user account.  
+
+Now, what happens if these APIs don’t sufficiently verify which account is making the request? It opens the door to a critical flaw: one user could misuse another’s payment information to gain unauthorized access to premium features or services.
+
+---
+
+## A Closer Look at How It Happens
+
+To better understand, let’s explore a hypothetical scenario:
+
+1. **Two Accounts, Different Setups**  
+   - **Account A** has a valid payment method added.  
+   - **Account B** has no payment method but wants to upgrade to a premium plan.  
+
+2. **API Calls and Customer IDs**  
+   - The platform uses unique identifiers like `customer_id` to link user accounts to payment methods.  
+   - If this identifier is exposed or not adequately validated, another account could potentially reuse it.  
+
+3. **Interception and Exploitation**  
+   - A malicious user intercepts their account upgrade request, replaces their `customer_id` with that of Account A, and resubmits the request.  
+   - The system processes the upgrade using Account A’s payment method, granting the attacker unauthorized access to victim payment method.  
+
+This kind of vulnerability, often categorized as an **IDOR (Insecure Direct Object Reference)** or **Business Logic Flaw**, can lead to unauthorized charges, free service access, and significant financial risk to the platform.
+
+---
+
+## Potential Sources of Exploitation
+
+In many cases, attackers can retrieve sensitive identifiers through unexpected avenues, such as:  
+
+1. **External Integrations**  
+   - APIs shared with third-party analytics or integrations might inadvertently expose sensitive data like `customer_id`.  
+
+2. **Invitation Features**  
+   - Some platforms allow users to invite others into their accounts, inadvertently revealing critical identifiers in the invitation process.  
+
+3. **Archived Data**  
+   - Historical data exposed through tools like the Wayback Machine can unintentionally reveal API behavior and identifiers.  
+
+---
+
+## Securing Payment Workflows: Best Practices
+
+To mitigate such risks, platforms must enforce robust security practices:  
+
+1. **Strict API Authorization**  
+   - Ensure every API request validates the authenticated user against the associated payment method or account identifier.  
+
+2. **Tokenization**  
+   - Use secure, opaque tokens instead of directly exposing sensitive identifiers like `customer_id`.  
+
+3. **Least Privilege Access**  
+   - Limit the information exposed through APIs to only what’s absolutely necessary for functionality.  
+
+4. **Regular Security Testing**  
+   - Conduct routine penetration tests to identify and address vulnerabilities before they are exploited.  
+
+5. **Monitoring and Alerts**  
+   - Implement anomaly detection mechanisms to flag unusual account activity or unauthorized upgrades.  
+
+---
+
+## Conclusion
+
+The integrity of payment workflows is critical for maintaining user trust and safeguarding financial systems. Vulnerabilities stemming from weak authorization mechanisms highlight the importance of secure API design and implementation. By prioritizing security at every stage of development, platforms can reduce the risk of exploitation and ensure a safer experience for their users.  
+
+---
+---
+
+## Timeline
+
+**[2023-01-17] — Bug reported**
+
+**[2023-02-02] — Triaged**
+
+**[2023-02-03] — Rewarded**
