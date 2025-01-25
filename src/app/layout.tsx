@@ -55,7 +55,7 @@ export default function RootLayout({
         </div>
       </body>
       <Script
-        src="http://umami-h08g0wgw8sskcc8oosg8g44k.129.150.54.71.sslip.io/script.js"
+        src="https://umami.jwisnetwork.com/script.js"
         data-website-id="480d1281-1096-4794-b799-8a71eab39de1"
       />
     </html>
