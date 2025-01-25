@@ -1,7 +1,8 @@
+import { Blog } from "./components/Blog";
 export default function Home() {
   return (
     <>
-      <main className="flex flex-col gap-8 row-start-2 sm:items-start">
+      <main className="flex flex-col gap-8">
         <p className="text-2xl font-mono">hi, i am cucumbersalad</p>
 
         <section className="flex flex-col gap-1">
@@ -48,8 +49,8 @@ export default function Home() {
                 security research on a company that is using a graphql
                 <i>Abstract Syntax Tree</i> (AST) approach to structure the
                 request. helps me to find 17 vulnerabilities, most of them are
-                <i>broken access control</i> (BAC)
-                <i>and insecure direct object references</i> (IDOR).
+                <i> broken access control</i> (BAC)
+                <i> and insecure direct object references</i> (IDOR).
               </p>
             </li>
 
@@ -69,6 +70,10 @@ export default function Home() {
             </li>
           </ul>
         </section>
+
+        <div>
+          <Blog />
+        </div>
       </main>
     </>
   );
