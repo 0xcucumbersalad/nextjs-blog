@@ -15,10 +15,10 @@ export const Blog = async () => {
   return (
     <section className="flex flex-col gap-1">
       <span className="font-mono font-bold text-xl">blog</span>
-      <ul className="my-5">
+      <ul className="my-5 ">
         {blogPosts.map((post) => (
           <li key={post.slug}>
-            <div className="flex justify-between">
+            <div className="flex justify-between my-5">
               <div className="flex flex-col">
                 <Link
                   href={`/blog/${post.slug}`}

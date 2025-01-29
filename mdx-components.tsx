@@ -3,10 +3,10 @@ import type { MDXComponents } from "mdx/types";
 export function useMDXComponents(): MDXComponents {
   return {
     h1: ({ children }) => (
-      <h1 className="text-2xl font-bold font-mono">{children}</h1>
+      <h1 className="text-3xl font-bold font-mono">{children}</h1>
     ),
     h2: ({ children }) => (
-      <h2 className="tex-xl font-bold font-mono">{children}</h2>
+      <h2 className="text-2xl font-bold font-mono">{children}</h2>
     ),
     p: ({ children }) => (
       <p className="text-md leading-relaxed mb-4">{children}</p>
@@ -22,7 +22,7 @@ export function useMDXComponents(): MDXComponents {
     pre: ({ children }) => (
       <pre className="bg-gray-500 text-fuchsia-200">{children}</pre>
     ),
-    code: ({ children }) => <code className="">{children}</code>,
+    code: ({ children }) => <code className="font-bold">{children}</code>,
 
     // Add more components as needed (e.g., ul, li, code, etc.)
   };

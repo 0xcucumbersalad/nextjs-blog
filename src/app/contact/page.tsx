@@ -19,7 +19,7 @@ export default function Blog() {
             <a href="https://hackerone.com/cucumbersalad">hackerone</a>
           </li>
           <li className="font-bold hover:underline">
-            <a href="https://https://www.linkedin.com/in/patiarba/">linkedin</a>
+            <a href="https://www.linkedin.com/in/patiarba/">linkedin</a>
           </li>
         </ul>
       </section>
