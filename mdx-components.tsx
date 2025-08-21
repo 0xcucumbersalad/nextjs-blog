@@ -19,10 +19,8 @@ export function useMDXComponents(): MDXComponents {
     ul: ({ children }) => <ul className="list-disc mx-5">{children}</ul>,
     ol: ({ children }) => <ul className="list-disc mx-5">{children}</ul>,
 
-    pre: ({ children }) => (
-      <pre className="bg-gray-500 text-fuchsia-200">{children}</pre>
-    ),
-    code: ({ children }) => <code className="font-bold">{children}</code>,
+    pre: ({ children }) => <pre className="">{children}</pre>,
+    code: ({ children }) => <code className="">{children}</code>,
 
     // Add more components as needed (e.g., ul, li, code, etc.)
   };

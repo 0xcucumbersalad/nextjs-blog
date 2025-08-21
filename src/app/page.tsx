@@ -101,7 +101,7 @@ export default function Home() {
               <p>
                 <b className=" font-mono hover:underline">
                   <a
-                    href="https://graphqlyzer.jwisnetwork.com/"
+                    href="https://graphqlyzer.0xcucumbersalad.dev/"
                     target="_blank"
                   >
                     graphqlyzer
@@ -114,21 +114,6 @@ export default function Home() {
                 request. helps me to find 17 vulnerabilities, most of them are
                 <i> broken access control</i> (BAC)
                 <i> and insecure direct object references</i> (IDOR).
-              </p>
-            </li>
-
-            <li>
-              <p>
-                <b className=" font-mono hover:underline">
-                  <a
-                    href="https://dashboard-staging.jwisnetwork.com/"
-                    target="_blank"
-                  >
-                    business activity tracker
-                  </a>
-                </b>
-                : our capstone project that tracks financial status of a
-                company.
               </p>
             </li>
           </ul>
